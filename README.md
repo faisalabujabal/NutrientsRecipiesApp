@@ -14,3 +14,6 @@ Friends(users_ID, users_ID)<br>
 
 <h3>Current Ingredients Table Data</h3>
 <img src="http://i.imgur.com/I14SNVn.png">
+
+Demo:
+<img src="http://i.imgur.com/Ud5Te1M.gif">
