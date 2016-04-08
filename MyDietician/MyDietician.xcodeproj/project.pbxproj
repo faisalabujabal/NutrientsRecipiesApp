@@ -1,0 +1,430 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4F2038861CA9FAEF00B9B1A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2038851CA9FAEF00B9B1A0 /* AppDelegate.swift */; };
+		4F2038881CA9FAEF00B9B1A0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2038871CA9FAEF00B9B1A0 /* ViewController.swift */; };
+		4F20388B1CA9FAEF00B9B1A0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F2038891CA9FAEF00B9B1A0 /* Main.storyboard */; };
+		4F20388D1CA9FAEF00B9B1A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F20388C1CA9FAEF00B9B1A0 /* Assets.xcassets */; };
+		4F2038901CA9FAEF00B9B1A0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F20388E1CA9FAEF00B9B1A0 /* LaunchScreen.storyboard */; };
+		4F4FB83F1CB49951006D1DE0 /* TwitterClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4FB83E1CB49951006D1DE0 /* TwitterClient.swift */; };
+		4F4FB8431CB4F313006D1DE0 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4FB8421CB4F313006D1DE0 /* ProfileViewController.swift */; };
+		4F4FB8451CB4FB7C006D1DE0 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4FB8441CB4FB7C006D1DE0 /* EditProfileViewController.swift */; };
+		4F4FB8471CB5C239006D1DE0 /* WelcomeInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4FB8461CB5C239006D1DE0 /* WelcomeInfoViewController.swift */; };
+		4F4FB8491CB7226D006D1DE0 /* TrackerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4FB8481CB7226D006D1DE0 /* TrackerViewController.swift */; };
+		4F4FB84D1CB72804006D1DE0 /* AddedItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4FB84C1CB72804006D1DE0 /* AddedItemTableViewCell.swift */; };
+		4F4FB8541CB78CE5006D1DE0 /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4FB8531CB78CE5006D1DE0 /* ItemTableViewCell.swift */; };
+		4F4FB8561CB78D09006D1DE0 /* ItemlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4FB8551CB78D09006D1DE0 /* ItemlistViewController.swift */; };
+		4FE8D5051CACF4050019B3D9 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE8D5041CACF4050019B3D9 /* SignUpViewController.swift */; };
+		9BF0D6D069BD0591D221233F /* Pods_MyDietician.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9518A1D69A08D2663E1DB7D7 /* Pods_MyDietician.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		4F2038821CA9FAEF00B9B1A0 /* MyDietician.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyDietician.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4F2038851CA9FAEF00B9B1A0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		4F2038871CA9FAEF00B9B1A0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4F20388A1CA9FAEF00B9B1A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4F20388C1CA9FAEF00B9B1A0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4F20388F1CA9FAEF00B9B1A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		4F2038911CA9FAEF00B9B1A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4F4FB83E1CB49951006D1DE0 /* TwitterClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterClient.swift; sourceTree = "<group>"; };
+		4F4FB8421CB4F313006D1DE0 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		4F4FB8441CB4FB7C006D1DE0 /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		4F4FB8461CB5C239006D1DE0 /* WelcomeInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeInfoViewController.swift; sourceTree = "<group>"; };
+		4F4FB8481CB7226D006D1DE0 /* TrackerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackerViewController.swift; sourceTree = "<group>"; };
+		4F4FB84C1CB72804006D1DE0 /* AddedItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddedItemTableViewCell.swift; sourceTree = "<group>"; };
+		4F4FB8531CB78CE5006D1DE0 /* ItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
+		4F4FB8551CB78D09006D1DE0 /* ItemlistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemlistViewController.swift; sourceTree = "<group>"; };
+		4FE8D5041CACF4050019B3D9 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		6258FF7340ED3AB3674682AC /* Pods-MyDietician.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyDietician.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyDietician/Pods-MyDietician.release.xcconfig"; sourceTree = "<group>"; };
+		9518A1D69A08D2663E1DB7D7 /* Pods_MyDietician.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyDietician.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC3FBF402FE327E20380587B /* Pods-MyDietician.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyDietician.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyDietician/Pods-MyDietician.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4F20387F1CA9FAEF00B9B1A0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9BF0D6D069BD0591D221233F /* Pods_MyDietician.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		291C445317A574B0D6C19EA8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9518A1D69A08D2663E1DB7D7 /* Pods_MyDietician.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		371C2D180BAADBAE0EDFC3DF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FC3FBF402FE327E20380587B /* Pods-MyDietician.debug.xcconfig */,
+				6258FF7340ED3AB3674682AC /* Pods-MyDietician.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		4F2038791CA9FAEF00B9B1A0 = {
+			isa = PBXGroup;
+			children = (
+				4F2038841CA9FAEF00B9B1A0 /* MyDietician */,
+				4F2038831CA9FAEF00B9B1A0 /* Products */,
+				371C2D180BAADBAE0EDFC3DF /* Pods */,
+				291C445317A574B0D6C19EA8 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		4F2038831CA9FAEF00B9B1A0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4F2038821CA9FAEF00B9B1A0 /* MyDietician.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4F2038841CA9FAEF00B9B1A0 /* MyDietician */ = {
+			isa = PBXGroup;
+			children = (
+				4F4FB8501CB75ABC006D1DE0 /* Models */,
+				4F4FB83D1CB49932006D1DE0 /* API */,
+				4F4FB83C1CB49734006D1DE0 /* Views */,
+				4F2038851CA9FAEF00B9B1A0 /* AppDelegate.swift */,
+				4F2038891CA9FAEF00B9B1A0 /* Main.storyboard */,
+				4F20388C1CA9FAEF00B9B1A0 /* Assets.xcassets */,
+				4F20388E1CA9FAEF00B9B1A0 /* LaunchScreen.storyboard */,
+				4F2038911CA9FAEF00B9B1A0 /* Info.plist */,
+			);
+			path = MyDietician;
+			sourceTree = "<group>";
+		};
+		4F4FB83C1CB49734006D1DE0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4F2038871CA9FAEF00B9B1A0 /* ViewController.swift */,
+				4FE8D5041CACF4050019B3D9 /* SignUpViewController.swift */,
+				4F4FB8421CB4F313006D1DE0 /* ProfileViewController.swift */,
+				4F4FB8441CB4FB7C006D1DE0 /* EditProfileViewController.swift */,
+				4F4FB8461CB5C239006D1DE0 /* WelcomeInfoViewController.swift */,
+				4F4FB8481CB7226D006D1DE0 /* TrackerViewController.swift */,
+				4F4FB84C1CB72804006D1DE0 /* AddedItemTableViewCell.swift */,
+				4F4FB8531CB78CE5006D1DE0 /* ItemTableViewCell.swift */,
+				4F4FB8551CB78D09006D1DE0 /* ItemlistViewController.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		4F4FB83D1CB49932006D1DE0 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				4F4FB83E1CB49951006D1DE0 /* TwitterClient.swift */,
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
+		4F4FB8501CB75ABC006D1DE0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4F2038811CA9FAEF00B9B1A0 /* MyDietician */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4F2038941CA9FAEF00B9B1A0 /* Build configuration list for PBXNativeTarget "MyDietician" */;
+			buildPhases = (
+				1D6966F079D7884BD30FDE00 /* Check Pods Manifest.lock */,
+				4F20387E1CA9FAEF00B9B1A0 /* Sources */,
+				4F20387F1CA9FAEF00B9B1A0 /* Frameworks */,
+				4F2038801CA9FAEF00B9B1A0 /* Resources */,
+				0257C2624C4BE75253BBE248 /* Embed Pods Frameworks */,
+				E02C4536FE13648B2AE7D84C /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MyDietician;
+			productName = MyDietician;
+			productReference = 4F2038821CA9FAEF00B9B1A0 /* MyDietician.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4F20387A1CA9FAEF00B9B1A0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0710;
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = "Shivam Bharuka";
+				TargetAttributes = {
+					4F2038811CA9FAEF00B9B1A0 = {
+						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = HCW43YU8QE;
+					};
+				};
+			};
+			buildConfigurationList = 4F20387D1CA9FAEF00B9B1A0 /* Build configuration list for PBXProject "MyDietician" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4F2038791CA9FAEF00B9B1A0;
+			productRefGroup = 4F2038831CA9FAEF00B9B1A0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4F2038811CA9FAEF00B9B1A0 /* MyDietician */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4F2038801CA9FAEF00B9B1A0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4F2038901CA9FAEF00B9B1A0 /* LaunchScreen.storyboard in Resources */,
+				4F20388D1CA9FAEF00B9B1A0 /* Assets.xcassets in Resources */,
+				4F20388B1CA9FAEF00B9B1A0 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0257C2624C4BE75253BBE248 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyDietician/Pods-MyDietician-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1D6966F079D7884BD30FDE00 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E02C4536FE13648B2AE7D84C /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyDietician/Pods-MyDietician-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4F20387E1CA9FAEF00B9B1A0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4F4FB8431CB4F313006D1DE0 /* ProfileViewController.swift in Sources */,
+				4F4FB8491CB7226D006D1DE0 /* TrackerViewController.swift in Sources */,
+				4F4FB8541CB78CE5006D1DE0 /* ItemTableViewCell.swift in Sources */,
+				4F4FB8471CB5C239006D1DE0 /* WelcomeInfoViewController.swift in Sources */,
+				4F4FB83F1CB49951006D1DE0 /* TwitterClient.swift in Sources */,
+				4FE8D5051CACF4050019B3D9 /* SignUpViewController.swift in Sources */,
+				4F4FB84D1CB72804006D1DE0 /* AddedItemTableViewCell.swift in Sources */,
+				4F2038881CA9FAEF00B9B1A0 /* ViewController.swift in Sources */,
+				4F2038861CA9FAEF00B9B1A0 /* AppDelegate.swift in Sources */,
+				4F4FB8451CB4FB7C006D1DE0 /* EditProfileViewController.swift in Sources */,
+				4F4FB8561CB78D09006D1DE0 /* ItemlistViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		4F2038891CA9FAEF00B9B1A0 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4F20388A1CA9FAEF00B9B1A0 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		4F20388E1CA9FAEF00B9B1A0 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4F20388F1CA9FAEF00B9B1A0 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4F2038921CA9FAEF00B9B1A0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		4F2038931CA9FAEF00B9B1A0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4F2038951CA9FAEF00B9B1A0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FC3FBF402FE327E20380587B /* Pods-MyDietician.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = MyDietician/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = shivambharuka.MyDietician;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		4F2038961CA9FAEF00B9B1A0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6258FF7340ED3AB3674682AC /* Pods-MyDietician.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = MyDietician/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = shivambharuka.MyDietician;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4F20387D1CA9FAEF00B9B1A0 /* Build configuration list for PBXProject "MyDietician" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4F2038921CA9FAEF00B9B1A0 /* Debug */,
+				4F2038931CA9FAEF00B9B1A0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4F2038941CA9FAEF00B9B1A0 /* Build configuration list for PBXNativeTarget "MyDietician" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4F2038951CA9FAEF00B9B1A0 /* Debug */,
+				4F2038961CA9FAEF00B9B1A0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4F20387A1CA9FAEF00B9B1A0 /* Project object */;
+}
