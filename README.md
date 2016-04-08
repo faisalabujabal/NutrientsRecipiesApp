@@ -16,4 +16,5 @@ Friends(users_ID, users_ID)<br>
 <img src="http://i.imgur.com/I14SNVn.png">
 
 Demo:
-<img src="http://i.imgur.com/Ud5Te1M.gif">
+<img src="http://g.recordit.co/GX7jtSOmN8.gif">
+
