@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WelcomeInfoViewController: UIViewController {
+class WelcomeInfoViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var profile_image: UIImageView!
     @IBOutlet weak var gender: UITextField!
@@ -39,6 +39,26 @@ class WelcomeInfoViewController: UIViewController {
             
             update_details()
         }
+    }
+    @IBAction func onTap(sender: AnyObject) {
+        let vc = UIImagePickerController()
+        vc.delegate = self
+        vc.allowsEditing = true
+        vc.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+            
+        self.presentViewController(vc, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(picker: UIImagePickerController,
+        didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+            // Get the image captured by the UIImagePickerController
+            let originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+            let editedImage = info[UIImagePickerControllerEditedImage] as! UIImage
+            
+            // Do something with the images (based on your use case)
+            profile_image.image = editedImage
+            // Dismiss UIImagePickerController to go back to your original view controller
+            dismissViewControllerAnimated(true, completion: nil)
     }
     
     func checkfields()->Bool{
@@ -86,7 +106,9 @@ class WelcomeInfoViewController: UIViewController {
     func backtohome(){
         self.performSegueWithIdentifier("details_saved", sender: nil)
     }
-    
+  
+
+   
     /*
     // MARK: - Navigation
 

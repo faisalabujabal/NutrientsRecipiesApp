@@ -14,7 +14,6 @@ class ItemTableViewCell: UITableViewCell {
     @IBOutlet weak var protein: UILabel!
     @IBOutlet weak var carb: UILabel!
     @IBOutlet weak var fats: UILabel!
-    @IBOutlet weak var servings: UITextField!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -12,41 +12,66 @@ class ItemlistViewController: UIViewController,UITableViewDataSource, UITableVie
 
     @IBOutlet weak var ItemtableView: UITableView!
     
-     var ingredients: NSArray? = nil
+    var ingredients: NSArray? = nil
+    
+    var user_dictionary: NSDictionary!
+    var user_id: String!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         ItemtableView.dataSource = self
         ItemtableView.delegate = self
        
+        var boxView = UIView()
+        boxView = UIView(frame: CGRect(x: view.frame.midX - 90, y: view.frame.midY - 25, width: 180, height: 50))
+        boxView.backgroundColor = UIColor.grayColor()
+        boxView.alpha = 0.8
+        boxView.layer.cornerRadius = 10
         
-        let loadingIndicator = UIActivityIndicatorView(activityIndicatorStyle: .WhiteLarge)
-        loadingIndicator.center = ItemtableView.center
-        loadingIndicator.startAnimating()
-        ItemtableView.addSubview(loadingIndicator)
-        //        loadingIndicator.showIndicator(parentView: ingredientsTableView)
+        let activityView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.White)
+        activityView.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+        activityView.startAnimating()
         
-        let ingredientsAPIURL = "http://abujaba2.web.engr.illinois.edu/cs411project/api/ingredients.php"
+        let textLabel = UILabel(frame: CGRect(x: 60, y: 0, width: 200, height: 50))
+        textLabel.textColor = UIColor.whiteColor()
+        textLabel.text = "Loading"
         
-        let requestURL: NSURL = NSURL(string: ingredientsAPIURL)!
-        let urlRequest: NSMutableURLRequest = NSMutableURLRequest(URL: requestURL)
-        let session = NSURLSession.sharedSession()
-        let task = session.dataTaskWithRequest(urlRequest) {(data, response, error) -> Void in
-            
-            let httpResponse = response as! NSHTTPURLResponse
-            let statusCode = httpResponse.statusCode
-            
-            if (statusCode == 200) {
-                print(data.dynamicType)
-                // we serialize our bytes back to the original JSON structure
-                let jsonResult: Dictionary = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! Dictionary<String, AnyObject>
-                let results: NSArray = jsonResult["results"] as! NSArray
-                self.ingredients = results
-                loadingIndicator.stopAnimating()
-                self.ItemtableView.reloadData()
-            }
-        }
+        boxView.addSubview(activityView)
+        boxView.addSubview(textLabel)
         
+        ItemtableView.addSubview(boxView)
+        
+        let url = NSURL(string: "http://abujaba2.web.engr.illinois.edu/cs411project/api/ingredients.php")
+  
+        let request = NSURLRequest(
+            URL: url!,
+            cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalCacheData,
+            timeoutInterval: 10)
+        
+        let session = NSURLSession(
+            configuration: NSURLSessionConfiguration.defaultSessionConfiguration(),
+            delegate: nil,
+            delegateQueue: NSOperationQueue.mainQueue()
+        )
+        
+        let task: NSURLSessionDataTask = session.dataTaskWithRequest(request,
+            completionHandler: { (dataOrNil, response, error) in
+                if let data = dataOrNil {
+                    if let responseDictionary = try! NSJSONSerialization.JSONObjectWithData(
+                        data, options:[]) as? NSDictionary {
+                            if responseDictionary["results"] is NSNull{
+                                
+                            }else{
+                                self.ingredients = responseDictionary["results"] as! NSArray
+                                print("Loaded")
+                                boxView.removeFromSuperview()
+                                self.ItemtableView.reloadData()
+                                print("Removed")
+                            }
+                    }
+                }
+        })
         task.resume()
     }
 
@@ -70,9 +95,103 @@ class ItemlistViewController: UIViewController,UITableViewDataSource, UITableVie
         cell.protein!.text = ingredients![indexPath.row]["ingredient_protien"] as? String
         cell.carb!.text = ingredients![indexPath.row]["ingredient_carbs"] as? String
         cell.fats!.text = ingredients![indexPath.row]["ingredient_fat"] as? String
-        cell.servings!.text = ingredients![indexPath.row]["ingredient_serving_size"] as? String
+       
         return cell
     }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        let defaults = NSUserDefaults.standardUserDefaults()
+        let user_dictionary = defaults.objectForKey("current_user") as? NSDictionary
+        self.user_dictionary = user_dictionary
+        
+        getUser({ () -> () in
+            print(self.user_id)
+            let currentDate = NSDate()
+            
+            let formatter = NSDateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd"
+            let timeString = formatter.stringFromDate(currentDate)
+            
+            // NSLog("(Current Short Time String = \(timeString))")
+            
+            let url = NSURL(string: "http://abujaba2.web.engr.illinois.edu/cs411project/api/addNutritionLog.php?user_id=\(self.user_id)&&date=\(timeString)&&recipe_id=\(self.ingredients![indexPath.row]["ingredient_id"]!!)")
+            print(url!)
+            let request = NSURLRequest(
+                URL: url!,
+                cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalCacheData,
+                timeoutInterval: 10)
+            
+            let session = NSURLSession(
+                configuration: NSURLSessionConfiguration.defaultSessionConfiguration(),
+                delegate: nil,
+                delegateQueue: NSOperationQueue.mainQueue()
+            )
+            
+            let task: NSURLSessionDataTask = session.dataTaskWithRequest(request,
+                completionHandler: { (dataOrNil, response, error) in
+                    if let data = dataOrNil {
+                        if let responseDictionary = try! NSJSONSerialization.JSONObjectWithData(
+                            data, options:[]) as? NSDictionary {
+                                if responseDictionary["results"] is NSNull{
+                                    
+                                }else{
+                                    print(responseDictionary)
+                                    let alert = UIAlertController(title: "Success", message: "Successfully Added", preferredStyle: UIAlertControllerStyle.Alert)
+                                    
+                                    alert.addAction(UIAlertAction(title: "Done", style: UIAlertActionStyle.Default, handler: { action in
+                                        self.backtohome()
+                                    }))
+                                    
+                                    alert.addAction(UIAlertAction(title: "Add More", style: UIAlertActionStyle.Default, handler: { action in
+                                   
+                                    }))
+                                    
+                                    self.presentViewController(alert, animated: true, completion: nil)
+                                }
+                        }
+                    }
+            })
+            task.resume()
+            
+        })
+
+    }
+    
+    func backtohome(){
+        navigationController?.popViewControllerAnimated(true)
+    }
+    
+    func getUser(success: ()->()){
+        
+        let url = NSURL(string: "http://abujaba2.web.engr.illinois.edu/cs411project/api/getUser.php?email=\(user_dictionary!["email_address"]!)")
+        
+        let request = NSURLRequest(
+            URL: url!,
+            cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalCacheData,
+            timeoutInterval: 10)
+        
+        let session = NSURLSession(
+            configuration: NSURLSessionConfiguration.defaultSessionConfiguration(),
+            delegate: nil,
+            delegateQueue: NSOperationQueue.mainQueue()
+        )
+        
+        let task: NSURLSessionDataTask = session.dataTaskWithRequest(request,
+            completionHandler: { (dataOrNil, response, error) in
+                if let data = dataOrNil {
+                    if let responseDictionary = try! NSJSONSerialization.JSONObjectWithData(
+                        data, options:[]) as? NSDictionary {
+                            print(responseDictionary["results"]!["user_id"])
+                            self.user_id = responseDictionary["results"]!["user_id"] as! String
+                            print(self.user_id)
+                            success()
+                    }
+                }
+        })
+        task.resume()
+    }
+    
     /*
     // MARK: - Navigation
 

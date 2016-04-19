@@ -18,6 +18,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var gender: UILabel!
     @IBOutlet weak var track: UILabel!
     
+    @IBOutlet var mainView: UIView!
     var user_dictionary: NSDictionary!
     
     override func viewDidLoad() {
@@ -79,7 +80,7 @@ class ProfileViewController: UIViewController {
     @IBAction func logout_user(sender: AnyObject) {
          let defaults = NSUserDefaults.standardUserDefaults()
          defaults.removeObjectForKey("current_user")
-        
+        mainView.hidden = true
         NSNotificationCenter.defaultCenter().postNotificationName("userloggedout", object: nil)
     }
     /*

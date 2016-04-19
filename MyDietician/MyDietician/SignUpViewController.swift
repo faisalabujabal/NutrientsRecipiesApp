@@ -101,7 +101,7 @@ class SignUpViewController: UIViewController {
                                 let alert = UIAlertController(title: "Success", message: "Account Successfully Created", preferredStyle: UIAlertControllerStyle.Alert)
                                 
                                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: { action in
-                                    self.backtohome()
+                                    self.welcomescreen()
                                 }))
                                 
                                 self.presentViewController(alert, animated: true, completion: nil)
@@ -112,8 +112,12 @@ class SignUpViewController: UIViewController {
         task.resume()
     }
     
-    func backtohome(){
+    func welcomescreen(){
         self.performSegueWithIdentifier("welcome_screen", sender: nil)
+    }
+    
+    func backtohome(){
+       navigationController?.popViewControllerAnimated(true)
     }
     /*
     // MARK: - Navigation
