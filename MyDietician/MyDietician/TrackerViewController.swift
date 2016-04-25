@@ -12,7 +12,6 @@ class TrackerViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     var ingredients: NSArray? = nil
     
-    @IBOutlet weak var total_calories: UILabel!
     @IBOutlet weak var total_protein: UILabel!
     @IBOutlet weak var total_carb: UILabel!
     @IBOutlet weak var total_fats: UILabel!
@@ -27,7 +26,6 @@ class TrackerViewController: UIViewController, UITableViewDelegate, UITableViewD
 
         AddedItem.delegate = self
         AddedItem.dataSource = self
-        loadtable()
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -39,6 +37,10 @@ class TrackerViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func loadtable(){
+        self.total_carb.text = String(0.0)
+        self.total_fats.text = String(0.0)
+        self.total_protein.text = String(0.0)
+        
         let loadingIndicator = UIActivityIndicatorView(activityIndicatorStyle: .WhiteLarge)
         loadingIndicator.center = AddedItem.center
         loadingIndicator.startAnimating()
@@ -50,7 +52,7 @@ class TrackerViewController: UIViewController, UITableViewDelegate, UITableViewD
         self.user_dictionary = user_dictionary
         
         getUser({ () -> () in
-            print(self.user_id)
+            //print(self.user_id)
             let currentDate = NSDate()
             
             let formatter = NSDateFormatter()
@@ -84,8 +86,9 @@ class TrackerViewController: UIViewController, UITableViewDelegate, UITableViewD
                                     print(self.ingredients!.count)
                                     //print(self.ingredients![0]["recipe_id"]!!)
                                     loadingIndicator.stopAnimating()
-                                    self.AddedItem.reloadData()
-                                    print("Removed")
+                                    self.calculate_total({ () -> () in
+                                        self.AddedItem.reloadData()
+                                    })
                                 }
                         }
                     }
@@ -104,15 +107,34 @@ class TrackerViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
 
+    var ingredient_id: String?
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = AddedItem.dequeueReusableCellWithIdentifier("IngredientsTableViewCell", forIndexPath: indexPath) as! AddedItemTableViewCell
-        cell.item_name!.text = ingredients![indexPath.row]["recipe_id"] as? String
+        //cell.item_name!.text = ingredients![indexPath.row]["recipe_id"] as? String
+        ingredient_id = ingredients![indexPath.row]["recipe_id"] as? String
+        getRecipe { (ingredient: NSDictionary) -> () in
+            //print(ingredient["results"]![0]["ingredient_name"]!!)
+            cell.item_name!.text = ingredient["results"]![0]["ingredient_name"]!! as! String
+        }
         return cell
     }
     
-    func getRecipe(success: ()->()){
-        let url = NSURL(string: "http://abujaba2.web.engr.illinois.edu/cs411project/api/addRecipe.php?recipe_id=4")
-        print(url!)
+    func calculate_total(success: ()->()){
+        for ingredient in self.ingredients!{
+            ingredient_id = ingredient["recipe_id"]! as! String
+            getRecipe { (ingredient: NSDictionary) -> () in
+                self.total_carb.text = String(Double(ingredient["results"]![0]["ingredient_carbs"]!! as! String)! + Double(self.total_carb.text!)!)
+                self.total_fats.text = String(Double(ingredient["results"]![0]["ingredient_fat"]!! as! String)! + Double(self.total_fats.text!)!)
+                self.total_protein.text = String(Double(ingredient["results"]![0]["ingredient_protien"]!! as! String)! + Double(self.total_protein.text!)!)
+            }
+        }
+        success()
+    }
+    
+    func getRecipe(success: (NSDictionary)->()){
+        let url = NSURL(string: "http://abujaba2.web.engr.illinois.edu/cs411project/api/ingredients.php?ingredient_id=\(ingredient_id!)")
+        //print(url!)
         let request = NSURLRequest(
             URL: url!,
             cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalCacheData,
@@ -129,7 +151,8 @@ class TrackerViewController: UIViewController, UITableViewDelegate, UITableViewD
                 if let data = dataOrNil {
                     if let responseDictionary = try! NSJSONSerialization.JSONObjectWithData(
                         data, options:[]) as? NSDictionary {
-                            print("Recipe: ",responseDictionary["results"])
+                           // print("Recipe: ",responseDictionary)
+                        success(responseDictionary)
                     }
                 }
         })
@@ -156,9 +179,9 @@ class TrackerViewController: UIViewController, UITableViewDelegate, UITableViewD
                 if let data = dataOrNil {
                     if let responseDictionary = try! NSJSONSerialization.JSONObjectWithData(
                         data, options:[]) as? NSDictionary {
-                            print(responseDictionary["results"]!["user_id"])
+                            //print(responseDictionary["results"]!["user_id"])
                           self.user_id = responseDictionary["results"]!["user_id"] as! String
-                            print(self.user_id)
+                            //print(self.user_id)
                             success()
                     }
                 }
