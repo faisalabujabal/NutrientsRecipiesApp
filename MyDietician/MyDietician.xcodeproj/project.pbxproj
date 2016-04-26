@@ -20,6 +20,9 @@
 		4F4FB84D1CB72804006D1DE0 /* AddedItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4FB84C1CB72804006D1DE0 /* AddedItemTableViewCell.swift */; };
 		4F4FB8541CB78CE5006D1DE0 /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4FB8531CB78CE5006D1DE0 /* ItemTableViewCell.swift */; };
 		4F4FB8561CB78D09006D1DE0 /* ItemlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4FB8551CB78D09006D1DE0 /* ItemlistViewController.swift */; };
+		4FC742131CCEDD8A00E9D3E1 /* RecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC742121CCEDD8A00E9D3E1 /* RecipeViewController.swift */; };
+		4FC742151CCEDDA100E9D3E1 /* RecipesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC742141CCEDDA100E9D3E1 /* RecipesTableViewCell.swift */; };
+		4FC742171CCF286A00E9D3E1 /* RecipeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC742161CCF286A00E9D3E1 /* RecipeDetailViewController.swift */; };
 		4FE8D5051CACF4050019B3D9 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE8D5041CACF4050019B3D9 /* SignUpViewController.swift */; };
 		9BF0D6D069BD0591D221233F /* Pods_MyDietician.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9518A1D69A08D2663E1DB7D7 /* Pods_MyDietician.framework */; };
 /* End PBXBuildFile section */
@@ -40,6 +43,9 @@
 		4F4FB84C1CB72804006D1DE0 /* AddedItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddedItemTableViewCell.swift; sourceTree = "<group>"; };
 		4F4FB8531CB78CE5006D1DE0 /* ItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
 		4F4FB8551CB78D09006D1DE0 /* ItemlistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemlistViewController.swift; sourceTree = "<group>"; };
+		4FC742121CCEDD8A00E9D3E1 /* RecipeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeViewController.swift; sourceTree = "<group>"; };
+		4FC742141CCEDDA100E9D3E1 /* RecipesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipesTableViewCell.swift; sourceTree = "<group>"; };
+		4FC742161CCF286A00E9D3E1 /* RecipeDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeDetailViewController.swift; sourceTree = "<group>"; };
 		4FE8D5041CACF4050019B3D9 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		6258FF7340ED3AB3674682AC /* Pods-MyDietician.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyDietician.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyDietician/Pods-MyDietician.release.xcconfig"; sourceTree = "<group>"; };
 		9518A1D69A08D2663E1DB7D7 /* Pods_MyDietician.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyDietician.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -120,6 +126,9 @@
 				4F4FB84C1CB72804006D1DE0 /* AddedItemTableViewCell.swift */,
 				4F4FB8531CB78CE5006D1DE0 /* ItemTableViewCell.swift */,
 				4F4FB8551CB78D09006D1DE0 /* ItemlistViewController.swift */,
+				4FC742121CCEDD8A00E9D3E1 /* RecipeViewController.swift */,
+				4FC742141CCEDDA100E9D3E1 /* RecipesTableViewCell.swift */,
+				4FC742161CCF286A00E9D3E1 /* RecipeDetailViewController.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -264,12 +273,15 @@
 			files = (
 				4F4FB8431CB4F313006D1DE0 /* ProfileViewController.swift in Sources */,
 				4F4FB8491CB7226D006D1DE0 /* TrackerViewController.swift in Sources */,
+				4FC742171CCF286A00E9D3E1 /* RecipeDetailViewController.swift in Sources */,
 				4F4FB8541CB78CE5006D1DE0 /* ItemTableViewCell.swift in Sources */,
 				4F4FB8471CB5C239006D1DE0 /* WelcomeInfoViewController.swift in Sources */,
 				4F4FB83F1CB49951006D1DE0 /* TwitterClient.swift in Sources */,
 				4FE8D5051CACF4050019B3D9 /* SignUpViewController.swift in Sources */,
 				4F4FB84D1CB72804006D1DE0 /* AddedItemTableViewCell.swift in Sources */,
 				4F2038881CA9FAEF00B9B1A0 /* ViewController.swift in Sources */,
+				4FC742131CCEDD8A00E9D3E1 /* RecipeViewController.swift in Sources */,
+				4FC742151CCEDDA100E9D3E1 /* RecipesTableViewCell.swift in Sources */,
 				4F2038861CA9FAEF00B9B1A0 /* AppDelegate.swift in Sources */,
 				4F4FB8451CB4FB7C006D1DE0 /* EditProfileViewController.swift in Sources */,
 				4F4FB8561CB78D09006D1DE0 /* ItemlistViewController.swift in Sources */,

@@ -17,12 +17,18 @@ class ItemlistViewController: UIViewController,UITableViewDataSource, UITableVie
     var user_dictionary: NSDictionary!
     var user_id: String!
     
+    var page_count: Int = 15
+    var checked: [Bool]!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         ItemtableView.dataSource = self
         ItemtableView.delegate = self
-       
+       // ItemtableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "item_detail")
+        
+        self.ItemtableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
+        
         var boxView = UIView()
         boxView = UIView(frame: CGRect(x: view.frame.midX - 90, y: view.frame.midY - 25, width: 180, height: 50))
         boxView.backgroundColor = UIColor.grayColor()
@@ -42,7 +48,7 @@ class ItemlistViewController: UIViewController,UITableViewDataSource, UITableVie
         
         ItemtableView.addSubview(boxView)
         
-        let url = NSURL(string: "http://abujaba2.web.engr.illinois.edu/cs411project/api/ingredients.php")
+        let url = NSURL(string: "http://abujaba2.web.engr.illinois.edu/cs411project/api/ingredients.php?limit=\(page_count)")
   
         let request = NSURLRequest(
             URL: url!,
@@ -64,10 +70,13 @@ class ItemlistViewController: UIViewController,UITableViewDataSource, UITableVie
                                 
                             }else{
                                 self.ingredients = responseDictionary["results"] as! NSArray
-                                print("Loaded")
+                                if((self.ingredients) != nil){
+                                    self.checked = [Bool](count: (self.ingredients?.count)!, repeatedValue: false)
+                                }
+                                //print("Loaded")
                                 boxView.removeFromSuperview()
                                 self.ItemtableView.reloadData()
-                                print("Removed")
+                                //print("Removed")
                             }
                     }
                 }
@@ -95,11 +104,73 @@ class ItemlistViewController: UIViewController,UITableViewDataSource, UITableVie
         cell.protein!.text = ingredients![indexPath.row]["ingredient_protien"] as? String
         cell.carb!.text = ingredients![indexPath.row]["ingredient_carbs"] as? String
         cell.fats!.text = ingredients![indexPath.row]["ingredient_fat"] as? String
-       
+        
+        if checked[indexPath.row] {
+            cell.accessoryType = .Checkmark
+        } else {
+            cell.accessoryType = .None
+        }
         return cell
     }
     
+    func loadMoreData() {
+        page_count = page_count + 15
+        let url = NSURL(string: "http://abujaba2.web.engr.illinois.edu/cs411project/api/ingredients.php?limit=\(page_count)")
+        
+        let request = NSURLRequest(
+            URL: url!,
+            cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalCacheData,
+            timeoutInterval: 10)
+        
+        let session = NSURLSession(
+            configuration: NSURLSessionConfiguration.defaultSessionConfiguration(),
+            delegate: nil,
+            delegateQueue: NSOperationQueue.mainQueue()
+        )
+        
+        let task: NSURLSessionDataTask = session.dataTaskWithRequest(request,
+            completionHandler: { (dataOrNil, response, error) in
+                if let data = dataOrNil {
+                    if let responseDictionary = try! NSJSONSerialization.JSONObjectWithData(
+                        data, options:[]) as? NSDictionary {
+                            if responseDictionary["results"] is NSNull{
+                                
+                            }else{
+                                self.ingredients = responseDictionary["results"] as! NSArray
+                                if((self.ingredients) != nil){
+                                    self.checked = [Bool](count: (self.ingredients?.count)!, repeatedValue: false)
+                                }
+                                //print("Loaded")
+                                self.isMoreDataLoading = false
+                                self.ItemtableView.reloadData()
+                                //print("Removed")
+                            }
+                    }
+                }
+        })
+        task.resume()
+    }
+    
+    var isMoreDataLoading = false
+    
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        if (!isMoreDataLoading) {
+           
+            let scrollViewContentHeight = ItemtableView.contentSize.height
+            let scrollOffsetThreshold = scrollViewContentHeight - ItemtableView.bounds.size.height
+          
+            if(scrollView.contentOffset.y > scrollOffsetThreshold && ItemtableView.dragging) {
+                isMoreDataLoading = true
+                loadMoreData()
+            }
+        }
+    }
+    
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        ItemtableView.deselectRowAtIndexPath(indexPath, animated: true)
+        checked[indexPath.row] = !checked[indexPath.row]
+        ItemtableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
         
         let defaults = NSUserDefaults.standardUserDefaults()
         let user_dictionary = defaults.objectForKey("current_user") as? NSDictionary
